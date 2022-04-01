@@ -9,6 +9,7 @@ import Foundation
 
 public class AuthManager {
 
+  //MARK: - Properties
   public let shared = AuthManager()
 
   
