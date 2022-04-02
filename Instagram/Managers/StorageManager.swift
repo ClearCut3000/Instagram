@@ -9,7 +9,7 @@ import FirebaseStorage
 public class StorageManager {
 
   //MARK: - Properties
-  public let shared = StorageManager()
+  static let shared = StorageManager()
 
   
 }

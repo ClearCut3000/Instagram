@@ -111,34 +111,34 @@ class LoginViewController: UIViewController {
   //MARK: - Layout
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
-    headerView.frame = CGRect(x: 0,
-                              y: 0.0,
-                              width: view.width,
-                              height: view.height/3.0)
-    usernameEmailField.frame = CGRect(x: 25,
-                                      y: headerView.bottom + 40,
-                                      width: view.width - 50,
-                                      height: 52.0)
-    passwordField.frame = CGRect(x: 25,
-                                 y: usernameEmailField.bottom + 10,
-                                 width: view.width - 50,
-                                 height: 52)
-    loginButton.frame = CGRect(x: 25,
-                               y: passwordField.bottom + 10,
-                               width: view.width - 50,
-                               height: 52)
-    createAccountButton.frame = CGRect(x: 25,
-                                       y: loginButton.bottom + 10,
-                                       width: view.width - 50,
-                                       height: 52)
-    termsButton.frame = CGRect(x: 10,
-                               y: view.height - view.safeAreaInsets.bottom-100,
-                               width: view.width - 20,
-                               height: 50)
-    privacyButton.frame = CGRect(x: 10,
-                                 y: view.height - view.safeAreaInsets.bottom-50,
-                                 width: view.width - 20,
-                                 height: 50)
+    headerView.frame             = CGRect(x: 0,
+                                          y: 0.0,
+                                          width: view.width,
+                                          height: view.height/3.0)
+    usernameEmailField.frame    = CGRect(x: 25,
+                                         y: headerView.bottom + 40,
+                                         width: view.width - 50,
+                                         height: 52.0)
+    passwordField.frame         = CGRect(x: 25,
+                                         y: usernameEmailField.bottom + 10,
+                                         width: view.width - 50,
+                                         height: 52)
+    loginButton.frame           = CGRect(x: 25,
+                                         y: passwordField.bottom + 10,
+                                         width: view.width - 50,
+                                         height: 52)
+    createAccountButton.frame   = CGRect(x: 25,
+                                         y: loginButton.bottom + 10,
+                                         width: view.width - 50,
+                                         height: 52)
+    termsButton.frame           = CGRect(x: 10,
+                                         y: view.height - view.safeAreaInsets.bottom-100,
+                                         width: view.width - 20,
+                                         height: 50)
+    privacyButton.frame         = CGRect(x: 10,
+                                         y: view.height - view.safeAreaInsets.bottom-50,
+                                         width: view.width - 20,
+                                         height: 50)
     configureHeaderView()
   }
 
@@ -169,7 +169,9 @@ class LoginViewController: UIViewController {
   @objc private func didTapLoginButton() {
     passwordField.resignFirstResponder()
     usernameEmailField.resignFirstResponder()
-    guard let usernameEmail = usernameEmailField.text, !usernameEmail.isEmpty, let password = passwordField.text, !password.isEmpty, password.count >= 8 else { return }
+    guard let usernameEmail = usernameEmailField.text, !usernameEmail.isEmpty,
+          let password = passwordField.text, !password.isEmpty,
+          password.count >= 8 else { return }
     var userName: String?
     var email: String?
     if usernameEmail.contains("@"), usernameEmail.contains(".") {
@@ -204,7 +206,8 @@ class LoginViewController: UIViewController {
 
   @objc private func didTapCreateAccountButton() {
     let vc = RegistrationViewController()
-    present(vc, animated: true)
+    vc.title = "Create Account"
+    present(UINavigationController(rootViewController: vc), animated: true)
   }
 }
 
