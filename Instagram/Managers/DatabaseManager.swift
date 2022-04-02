@@ -15,11 +15,11 @@ public class DatabaseManager {
 
   //MARK: - Public Methods
 
-  /// Chech is username and email is avaliabe
+  /// Check is username and email is avaliable
   /// - Parameters:
   ///   - email: String representing email
   ///   - username: String representing username
-  ///   - completion: escaping & returns true if chech is passed
+  ///   - completion: escaping & returns true if check is passed
   public func canCreateNewUser(with email: String, username: String, completion: @escaping (Bool) -> Void) {
 
   }

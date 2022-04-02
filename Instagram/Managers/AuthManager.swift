@@ -13,6 +13,13 @@ public class AuthManager {
   static let shared = AuthManager()
 
   //MARK: - Methods
+
+  /// Create new user in firebase databse
+  /// - Parameters:
+  ///   - username: String descripring user
+  ///   - email: String representing email
+  ///   - password: String representing password
+  ///   - completion: async callback for result if new user successfully created in database
   public func registerNewUser(username: String, email: String, password: String, completion: @escaping (Bool) -> Void) {
     DatabaseManager.shared.canCreateNewUser(with: email, username: username) { canCreate in
       if canCreate {
@@ -39,6 +46,12 @@ public class AuthManager {
     }
   }
 
+  /// Method for logging user with existing username and password
+  /// - Parameters:
+  ///   - userName: String for existing username
+  ///   - email: String for registered email
+  ///   - password: String for user password
+  ///   - completion: async callback for result if user signning in is successfull
   public func loginUser(userName: String?, email: String?, password: String, completion: @escaping (Bool) -> Void) {
     if let email = email {
       Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
@@ -52,6 +65,21 @@ public class AuthManager {
       }
     } else if let userName = userName {
       print(userName)
+    }
+  }
+
+  /// Attempt to log out user from fairebase
+  /// - Parameter completion: callback for signning in result
+  public func logOut(completion: (Bool) -> Void) {
+    do {
+      try Auth.auth().signOut()
+      completion(true)
+      return
+    }
+    catch {
+      completion(false)
+      print(error)
+      return
     }
   }
 }
