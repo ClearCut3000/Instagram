@@ -12,7 +12,6 @@ struct SettingCellModel {
   let handler: (() -> Void)
 }
 
-
 ///ViewController to show user settings
 final class SettingsViewController: UIViewController {
 
@@ -44,7 +43,7 @@ final class SettingsViewController: UIViewController {
 
   //MARK: - Methods
   private func configureModels() {
-    let section = [SettingCellModel(title: "Log Uot", handler: { [weak self] in
+    let section = [SettingCellModel(title: "Log Out", handler: { [weak self] in
       self?.didTapLogOut()
 
     })]
@@ -54,7 +53,7 @@ final class SettingsViewController: UIViewController {
   private func didTapLogOut() {
     let actionSheet = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: .actionSheet)
     actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-    actionSheet.addAction(UIAlertAction(title: "log Uot", style: .destructive, handler: { _ in
+    actionSheet.addAction(UIAlertAction(title: "log Out", style: .destructive, handler: { _ in
       AuthManager.shared.logOut { success in
         DispatchQueue.main.async {
           if success {
