@@ -15,7 +15,7 @@ struct SettingCellModel {
 ///ViewController to show user settings
 final class SettingsViewController: UIViewController {
 
-//MARK: - Properties
+  //MARK: - Properties
   private var data = [[SettingCellModel]]()
 
   //MARK: - Subview's
@@ -25,7 +25,7 @@ final class SettingsViewController: UIViewController {
     return tableView
   }()
 
-//MARK: - View lifecycle
+  //MARK: - View lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
     configureModels()
@@ -35,7 +35,7 @@ final class SettingsViewController: UIViewController {
     tableView.dataSource = self
   }
 
-//MARK: - Layout
+  //MARK: - Layout
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     tableView.frame = view.bounds
@@ -43,11 +43,29 @@ final class SettingsViewController: UIViewController {
 
   //MARK: - Methods
   private func configureModels() {
-    let section = [SettingCellModel(title: "Log Out", handler: { [weak self] in
-      self?.didTapLogOut()
+    data.append([SettingCellModel(title: "Edit Profile",        handler: { [weak self] in
 
-    })]
-    data.append(section)
+    }),
+                 SettingCellModel(title: "Invite friends",      handler: { [weak self] in
+
+    }),
+                 SettingCellModel(title: "Save original posts", handler: { [weak self] in
+
+    })])
+
+    data.append([SettingCellModel(title: "Terms of Service",    handler: { [weak self] in
+
+    }),
+                 SettingCellModel(title: "Privacy Policy",      handler: { [weak self] in
+
+    }),
+                 SettingCellModel(title: "Help / Feedback",     handler: { [weak self] in
+
+    })])
+
+    data.append([SettingCellModel(title: "Log Out",             handler: { [weak self] in
+      self?.didTapLogOut()
+    })])
   }
 
   private func didTapLogOut() {
