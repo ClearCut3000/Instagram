@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 struct SettingCellModel {
   let title: String
@@ -44,28 +45,60 @@ final class SettingsViewController: UIViewController {
   //MARK: - Methods
   private func configureModels() {
     data.append([SettingCellModel(title: "Edit Profile",        handler: { [weak self] in
-
+      self?.didTapEditProfile()
     }),
                  SettingCellModel(title: "Invite friends",      handler: { [weak self] in
-
+      self?.didTapInviteFriends()
     }),
                  SettingCellModel(title: "Save original posts", handler: { [weak self] in
-
+      self?.didTapsaveOriginalPosts()
     })])
 
     data.append([SettingCellModel(title: "Terms of Service",    handler: { [weak self] in
-
+      self?.openUrl(type: .terms)
     }),
                  SettingCellModel(title: "Privacy Policy",      handler: { [weak self] in
-
+      self?.openUrl(type: .privacy)
     }),
                  SettingCellModel(title: "Help / Feedback",     handler: { [weak self] in
-
+      self?.openUrl(type: .help)
     })])
 
     data.append([SettingCellModel(title: "Log Out",             handler: { [weak self] in
       self?.didTapLogOut()
     })])
+  }
+
+  enum SettingsURLType {
+    case terms, privacy, help
+  }
+
+  private func openUrl(type: SettingsURLType) {
+    let urlString: String
+    switch type {
+    case .terms: urlString = "https://help.instagram.com/581066165581870"
+    case .privacy: urlString = "https://help.instagram.com/519522125107875/?maybe_redirect_pol=0"
+    case .help: urlString = "https://help.instagram.com/"
+    }
+    guard let url = URL(string: urlString) else { return }
+    let vc = SFSafariViewController(url: url)
+    present(vc, animated: true)
+
+  }
+
+  private func didTapsaveOriginalPosts() {
+
+  }
+
+  private func didTapInviteFriends() {
+
+  }
+
+  private func didTapEditProfile() {
+    let vc = EditProfileViewController()
+    vc.title = "Edit Profile"
+    let navVC = UINavigationController(rootViewController: vc)
+    present(navVC, animated: true)
   }
 
   private func didTapLogOut() {
@@ -106,6 +139,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
     cell.textLabel?.text = data[indexPath.section][indexPath.row].title
+    cell.accessoryType = .disclosureIndicator
     return cell
   }
 
