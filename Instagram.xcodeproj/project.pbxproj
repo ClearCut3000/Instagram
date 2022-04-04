@@ -37,6 +37,8 @@
 		36A8E75027FA221B00D4465B /* IGFeedPostHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8E74F27FA221B00D4465B /* IGFeedPostHeaderTableViewCell.swift */; };
 		36A8E75227FA224900D4465B /* IGFeedPostActionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8E75127FA224900D4465B /* IGFeedPostActionsTableViewCell.swift */; };
 		36A8E75427FA227100D4465B /* IGFeedPostGeneralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8E75327FA227100D4465B /* IGFeedPostGeneralTableViewCell.swift */; };
+		36F50C5627FB6CB40017DFCA /* EditProfileFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F50C5527FB6CB40017DFCA /* EditProfileFormModel.swift */; };
+		36F50C5827FB71630017DFCA /* FormTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F50C5727FB71630017DFCA /* FormTableViewCell.swift */; };
 		F0087FF9755ECC72813EFA24 /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159539C9C13406D849D2D1A0 /* Pods_Instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,8 @@
 		36A8E74F27FA221B00D4465B /* IGFeedPostHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		36A8E75127FA224900D4465B /* IGFeedPostActionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostActionsTableViewCell.swift; sourceTree = "<group>"; };
 		36A8E75327FA227100D4465B /* IGFeedPostGeneralTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostGeneralTableViewCell.swift; sourceTree = "<group>"; };
+		36F50C5527FB6CB40017DFCA /* EditProfileFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileFormModel.swift; sourceTree = "<group>"; };
+		36F50C5727FB71630017DFCA /* FormTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTableViewCell.swift; sourceTree = "<group>"; };
 		448CCD2C9BB7693741D6036C /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 		7E4719803366C5D77DE8B25F /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,6 +179,7 @@
 		36A066AB27F2385D00F5C132 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				36F50C5527FB6CB40017DFCA /* EditProfileFormModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				36A8E74E27FA21E700D4465B /* HomeFeed */,
+				36F50C5727FB71630017DFCA /* FormTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -378,6 +384,7 @@
 				36A066C127F23B8C00F5C132 /* EditProfileViewController.swift in Sources */,
 				36A066B027F23A7800F5C132 /* ExploreViewController.swift in Sources */,
 				36A066CD27F23E4900F5C132 /* PublishPostViewController.swift in Sources */,
+				36F50C5627FB6CB40017DFCA /* EditProfileFormModel.swift in Sources */,
 				36A066B227F23A9000F5C132 /* CameraViewController.swift in Sources */,
 				36A8E75027FA221B00D4465B /* IGFeedPostHeaderTableViewCell.swift in Sources */,
 				36A0669B27F2380100F5C132 /* HomeViewController.swift in Sources */,
@@ -387,6 +394,7 @@
 				363FCE1227F4E50B00686BCF /* StorageManager.swift in Sources */,
 				36A8E74D27FA1B3800D4465B /* IGFeedPostTableViewCell.swift in Sources */,
 				36A066BF27F23B6000F5C132 /* PostViewController.swift in Sources */,
+				36F50C5827FB71630017DFCA /* FormTableViewCell.swift in Sources */,
 				363FCE0E27F4E3E600686BCF /* DatabaseManager.swift in Sources */,
 				36A066B427F23AA200F5C132 /* NotificationsViewController.swift in Sources */,
 				363FCE1427F72A4F00686BCF /* UIView + Extension.swift in Sources */,
