@@ -10,7 +10,7 @@ import UIKit
 /// Profile view controller
 final class ProfileViewController: UIViewController {
 
-  //MARK: - Properties
+  //MARK: - Subview's
   private var collectionView: UICollectionView?
 
   //MARK: - View lifecycle
@@ -22,6 +22,7 @@ final class ProfileViewController: UIViewController {
     layout.scrollDirection = .vertical
     layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     layout.itemSize = CGSize(width: view.width/3, height: view.width/3)
+    collectionView?.backgroundColor = .red
     collectionView?.delegate = self
     collectionView?.dataSource = self
     collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
