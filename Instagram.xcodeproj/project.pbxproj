@@ -40,6 +40,8 @@
 		36F50C5627FB6CB40017DFCA /* EditProfileFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F50C5527FB6CB40017DFCA /* EditProfileFormModel.swift */; };
 		36F50C5827FB71630017DFCA /* FormTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F50C5727FB71630017DFCA /* FormTableViewCell.swift */; };
 		36F50C5B27FCE3F10017DFCA /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F50C5A27FCE3F10017DFCA /* PhotoCollectionViewCell.swift */; };
+		36F50C5D27FCE4CF0017DFCA /* ProfileInfoHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F50C5C27FCE4CF0017DFCA /* ProfileInfoHeaderCollectionReusableView.swift */; };
+		36F50C5F27FCE4FE0017DFCA /* ProfileTabsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F50C5E27FCE4FE0017DFCA /* ProfileTabsCollectionReusableView.swift */; };
 		F0087FF9755ECC72813EFA24 /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159539C9C13406D849D2D1A0 /* Pods_Instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,8 @@
 		36F50C5527FB6CB40017DFCA /* EditProfileFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileFormModel.swift; sourceTree = "<group>"; };
 		36F50C5727FB71630017DFCA /* FormTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTableViewCell.swift; sourceTree = "<group>"; };
 		36F50C5A27FCE3F10017DFCA /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		36F50C5C27FCE4CF0017DFCA /* ProfileInfoHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		36F50C5E27FCE4FE0017DFCA /* ProfileTabsCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabsCollectionReusableView.swift; sourceTree = "<group>"; };
 		448CCD2C9BB7693741D6036C /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 		7E4719803366C5D77DE8B25F /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -272,6 +276,8 @@
 		36F50C5927FCE3A40017DFCA /* CollectionView Headers */ = {
 			isa = PBXGroup;
 			children = (
+				36F50C5C27FCE4CF0017DFCA /* ProfileInfoHeaderCollectionReusableView.swift */,
+				36F50C5E27FCE4FE0017DFCA /* ProfileTabsCollectionReusableView.swift */,
 			);
 			path = "CollectionView Headers";
 			sourceTree = "<group>";
@@ -396,6 +402,7 @@
 				36A066B027F23A7800F5C132 /* ExploreViewController.swift in Sources */,
 				36A066CD27F23E4900F5C132 /* PublishPostViewController.swift in Sources */,
 				36F50C5627FB6CB40017DFCA /* EditProfileFormModel.swift in Sources */,
+				36F50C5F27FCE4FE0017DFCA /* ProfileTabsCollectionReusableView.swift in Sources */,
 				36A066B227F23A9000F5C132 /* CameraViewController.swift in Sources */,
 				36A8E75027FA221B00D4465B /* IGFeedPostHeaderTableViewCell.swift in Sources */,
 				36A0669B27F2380100F5C132 /* HomeViewController.swift in Sources */,
@@ -412,6 +419,7 @@
 				36A066C927F23BD900F5C132 /* SearchResultViewController.swift in Sources */,
 				36F50C5B27FCE3F10017DFCA /* PhotoCollectionViewCell.swift in Sources */,
 				36A066BA27F23B1700F5C132 /* LoginViewController.swift in Sources */,
+				36F50C5D27FCE4CF0017DFCA /* ProfileInfoHeaderCollectionReusableView.swift in Sources */,
 				36A066C727F23BCD00F5C132 /* SearchViewController.swift in Sources */,
 				36A066B627F23AB300F5C132 /* ProfileViewController.swift in Sources */,
 				363FCE1027F4E4CC00686BCF /* AuthManager.swift in Sources */,
