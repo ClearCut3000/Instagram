@@ -9,21 +9,56 @@ import UIKit
 
 class PostViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  //MARK: - Properties
+  private let model: UserPost?
 
-        // Do any additional setup after loading the view.
-    }
-    
+//MARK: - Subview's
+  private let tableView: UITableView = {
+    let tableView = UITableView()
+    return tableView
+  }()
 
-    /*
-    // MARK: - Navigation
+  //MARK: - Init's
+  init(model: UserPost?) {
+    self.model = model
+    super.init(nibName: nil, bundle: nil)
+  }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
 
+  //MARK: - Layout
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    tableView.frame = view.bounds
+  }
+
+  //MARK: - View lifecycle
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = .systemBackground
+    tableView.delegate = self
+    tableView.dataSource = self
+    view.addSubview(tableView)
+  }
+}
+
+//MARK: - UITableViewDelegate, UITableViewDataSource
+extension PostViewController: UITableViewDelegate, UITableViewDataSource {
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 0
+  }
+
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 0
+  }
+
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    return UITableViewCell()
+  }
+
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+  }
 }
