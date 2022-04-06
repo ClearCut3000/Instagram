@@ -11,4 +11,14 @@ class ProfileTabsCollectionReusableView: UICollectionReusableView {
 
   //MARK: - Properties
   static let identifier = "ProfileTabsCollectionReusableView"
+
+  //MARK: - init's
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    backgroundColor = .orange
+  }
+
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
 }

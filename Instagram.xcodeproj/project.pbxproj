@@ -37,6 +37,7 @@
 		36A8E75027FA221B00D4465B /* IGFeedPostHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8E74F27FA221B00D4465B /* IGFeedPostHeaderTableViewCell.swift */; };
 		36A8E75227FA224900D4465B /* IGFeedPostActionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8E75127FA224900D4465B /* IGFeedPostActionsTableViewCell.swift */; };
 		36A8E75427FA227100D4465B /* IGFeedPostGeneralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8E75327FA227100D4465B /* IGFeedPostGeneralTableViewCell.swift */; };
+		36EA570827FE0ACF004E5ECA /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA570727FE0ACF004E5ECA /* Models.swift */; };
 		36F50C5627FB6CB40017DFCA /* EditProfileFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F50C5527FB6CB40017DFCA /* EditProfileFormModel.swift */; };
 		36F50C5827FB71630017DFCA /* FormTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F50C5727FB71630017DFCA /* FormTableViewCell.swift */; };
 		36F50C5B27FCE3F10017DFCA /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F50C5A27FCE3F10017DFCA /* PhotoCollectionViewCell.swift */; };
@@ -79,6 +80,7 @@
 		36A8E74F27FA221B00D4465B /* IGFeedPostHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		36A8E75127FA224900D4465B /* IGFeedPostActionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostActionsTableViewCell.swift; sourceTree = "<group>"; };
 		36A8E75327FA227100D4465B /* IGFeedPostGeneralTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostGeneralTableViewCell.swift; sourceTree = "<group>"; };
+		36EA570727FE0ACF004E5ECA /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		36F50C5527FB6CB40017DFCA /* EditProfileFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileFormModel.swift; sourceTree = "<group>"; };
 		36F50C5727FB71630017DFCA /* FormTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTableViewCell.swift; sourceTree = "<group>"; };
 		36F50C5A27FCE3F10017DFCA /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				36F50C5527FB6CB40017DFCA /* EditProfileFormModel.swift */,
+				36EA570727FE0ACF004E5ECA /* Models.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				36A066BC27F23B2A00F5C132 /* RegistrationViewController.swift in Sources */,
 				36A066CB27F23E2800F5C132 /* PostEditorViewController.swift in Sources */,
 				36A8E75427FA227100D4465B /* IGFeedPostGeneralTableViewCell.swift in Sources */,
+				36EA570827FE0ACF004E5ECA /* Models.swift in Sources */,
 				363FCE1227F4E50B00686BCF /* StorageManager.swift in Sources */,
 				36A8E74D27FA1B3800D4465B /* IGFeedPostTableViewCell.swift in Sources */,
 				36A066BF27F23B6000F5C132 /* PostViewController.swift in Sources */,
