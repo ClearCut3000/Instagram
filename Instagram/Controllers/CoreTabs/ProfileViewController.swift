@@ -20,8 +20,11 @@ final class ProfileViewController: UIViewController {
     configureNavigationBar()
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .vertical
-    layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    layout.itemSize = CGSize(width: view.width/3, height: view.width/3)
+    layout.minimumLineSpacing = 1
+    layout.minimumInteritemSpacing = 1
+    layout.sectionInset = UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
+    let size = (view.width-4)/3
+    layout.itemSize = CGSize(width: size, height: size)
     collectionView?.backgroundColor = .red
     //Cell
     collectionView?.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
