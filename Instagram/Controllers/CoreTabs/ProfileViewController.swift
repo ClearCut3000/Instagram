@@ -94,6 +94,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     if indexPath.section == 1 {
       let tabControlHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileTabsCollectionReusableView.identifier, for: indexPath) as! ProfileTabsCollectionReusableView
+      tabControlHeader.delegate = self
       return tabControlHeader
     }
     let profileHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileInfoHeaderCollectionReusableView.identifier, for: indexPath) as! ProfileInfoHeaderCollectionReusableView
@@ -118,7 +119,7 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
 
   func profileHeaderDidTapFollowersButton(_ header: ProfileInfoHeaderCollectionReusableView) {
     //opens up list controller with user's followers
-    let vc = ListViewController()
+    let vc = ListViewController(data: [""])
     vc.title = "Followers"
     vc.navigationItem.largeTitleDisplayMode = .never
     navigationController?.pushViewController(vc, animated: true)
@@ -126,7 +127,7 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
 
   func profileHeaderDidTapFollowingButton(_ header: ProfileInfoHeaderCollectionReusableView) {
     //opens up list controller with who is the user following
-    let vc = ListViewController()
+    let vc = ListViewController(data: [""])
     vc.title = "Following"
     vc.navigationItem.largeTitleDisplayMode = .never
     navigationController?.pushViewController(vc, animated: true)
@@ -137,6 +138,17 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
     let vc = EditProfileViewController()
     vc.title = "Edit Profile"
     present(UINavigationController(rootViewController: vc), animated: true)
+  }
+}
+
+//MARK: - ProfileTabsCollectionReusableViewDelegate
+extension ProfileViewController: ProfileTabsCollectionReusableViewDelegate {
+  func didTapGridButtonTab() {
+    
+  }
+
+  func didTapTaggedButtonTab() {
+
   }
 
 
