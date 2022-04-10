@@ -8,15 +8,25 @@
 import UIKit
 
 protocol UserFollowTableViewCellDelegate: AnyObject {
-  func didTapFollowUnfollowButton(model: String)
+  func didTapFollowUnfollowButton(model: UserRelationship)
 }
 
+enum FollowState {
+  case followong, not_following
+}
+
+struct UserRelationship {
+  let username: String
+  let name: String
+  let type: FollowState
+}
 
 class UserFollowTableViewCell: UITableViewCell {
 
 //MARK: - Properties
   static let identifier = "UserFollowTableViewCell"
   weak var delegate: UserFollowTableViewCellDelegate?
+  private var model: UserRelationship?
 
   //MARK: - Subview's
   private let profileImageView: UIImageView = {
@@ -55,6 +65,8 @@ class UserFollowTableViewCell: UITableViewCell {
     contentView.addSubview(nameLabel)
     contentView.addSubview(usernameLabel)
     contentView.addSubview(followButton)
+    selectionStyle = .none
+    followButton.addTarget(self, action: #selector(didTapFollowButton), for: .touchUpInside)
   }
 
   required init?(coder: NSCoder) {
@@ -96,7 +108,27 @@ class UserFollowTableViewCell: UITableViewCell {
     followButton.backgroundColor = nil
   }
 
-  public func configure(with model:  String) {
+  public func configure(with model: UserRelationship) {
+    self.model = model
+    nameLabel.text = model.name
+    usernameLabel.text = model.username
+    switch model.type {
+    case .followong:
+      followButton.setTitle("Unfollow", for: .normal)
+      followButton.setTitleColor(.label, for: .normal)
+      followButton.backgroundColor = .systemBackground
+      followButton.layer.borderWidth = 1
+      followButton.layer.borderColor = UIColor.label.cgColor
+    case .not_following:
+      followButton.setTitle("Follow", for: .normal)
+      followButton.setTitleColor(.white, for: .normal)
+      followButton.backgroundColor = .systemBlue
+      followButton.layer.borderWidth = 0
+    }
+  }
 
+  @objc private func didTapFollowButton() {
+    guard let model = model else { return }
+    delegate?.didTapFollowUnfollowButton(model: model)
   }
 }

@@ -19,7 +19,7 @@ class NotificationsViewController: UIViewController {
 //MARK: - View Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    title = "Notifications"
+    navigationItem.title = "Notifications"
     view.backgroundColor = .systemBackground
     view.addSubview(tableView)
     tableView.delegate = self
