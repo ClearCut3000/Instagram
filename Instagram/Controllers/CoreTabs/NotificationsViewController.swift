@@ -7,13 +7,30 @@
 
 import UIKit
 
-class NotificationsViewController: UIViewController {
+enum UserNotificationType {
+  case like(post: UserPost)
+  case follow
+}
+
+struct UserNotification {
+  let type: UserNotificationType
+  let text: String
+  let user: User
+}
+
+final class NotificationsViewController: UIViewController {
+
+  //MARK: - Properties
+  private var models = [UserNotification]()
 
   //MARK: - Subview's
   private let tableView: UITableView = {
     let tableView = UITableView()
     tableView.isHidden = true
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    tableView.register(NotificationLikeEventTableViewCell.self,
+                       forCellReuseIdentifier: NotificationLikeEventTableViewCell.identifier)
+    tableView.register(NotificationFollowEventTableViewCell.self,
+                       forCellReuseIdentifier: NotificationFollowEventTableViewCell.identifier)
     return tableView
   }()
 
@@ -26,9 +43,10 @@ class NotificationsViewController: UIViewController {
     return spinner
   }()
 
-//MARK: - View Lifecycle
+  //MARK: - View Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    fetchNotifications()
     navigationItem.title = "Notifications"
     view.backgroundColor = .systemBackground
     view.addSubview(spinner)
@@ -47,6 +65,10 @@ class NotificationsViewController: UIViewController {
   }
 
   //MARK: - Methods
+  private func fetchNotifications() {
+    
+  }
+
   private func addNoNotificationView() {
     tableView.isHidden = true
     view.addSubview(noNotificationsView)
