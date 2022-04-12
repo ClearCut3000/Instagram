@@ -66,7 +66,7 @@ final class NotificationsViewController: UIViewController {
 
   //MARK: - Methods
   private func fetchNotifications() {
-    
+
   }
 
   private func addNoNotificationView() {
@@ -80,11 +80,24 @@ final class NotificationsViewController: UIViewController {
 //MARK: - UITableViewDelegate, UITableViewDataSource
 extension NotificationsViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 0
+    return models.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-    return cell
+    let model = models[indexPath.row]
+    switch model.type {
+    case .follow:
+      let cell = tableView.dequeueReusableCell(withIdentifier: NotificationFollowEventTableViewCell.identifier, for: indexPath) as! NotificationFollowEventTableViewCell
+      cell.configure(with: model)
+      return cell
+    case .like(_):
+      let cell = tableView.dequeueReusableCell(withIdentifier: NotificationLikeEventTableViewCell.identifier, for: indexPath) as! NotificationLikeEventTableViewCell
+      cell.configure(with: model)
+      return cell
+    }
+  }
+
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 52
   }
 }

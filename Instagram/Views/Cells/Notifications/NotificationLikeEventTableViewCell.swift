@@ -63,10 +63,10 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
                                     height: contentView.height-6)
     profileImageView.layer.cornerRadius = profileImageView.height/2
     let size = contentView.height-4
-    postButton.frame = CGRect(x: contentView.width-size, y: 2, width: size, height: size)
-    label.frame = CGRect(x: profileImageView.right,
+    postButton.frame = CGRect(x: contentView.width-5-size, y: 2, width: size, height: size)
+    label.frame = CGRect(x: profileImageView.right+5,
                          y: 0,
-                         width: contentView.width-size-profileImageView.width-6,
+                         width: contentView.width-size-profileImageView.width-16,
                          height: contentView.height)
   }
 
