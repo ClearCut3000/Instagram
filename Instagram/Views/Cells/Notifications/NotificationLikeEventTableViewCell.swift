@@ -9,7 +9,7 @@ import SDWebImage
 import UIKit
 
 protocol NotificationLikeEventTableViewCellDelegate: AnyObject {
-  func didTapFRelatedPostButton(model: UserNotification)
+  func didTapRelatedPostButton(model: UserNotification)
 }
 
 class NotificationLikeEventTableViewCell: UITableViewCell {
@@ -48,6 +48,8 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
     contentView.addSubview(profileImageView)
     contentView.addSubview(label)
     contentView.addSubview(postButton)
+    postButton.addTarget(self, action: #selector(didTappostButton), for: .touchUpInside)
+    selectionStyle = .none
   }
 
   required init?(coder: NSCoder) {
@@ -57,20 +59,28 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
   //MARK: - Layout
   override func layoutSubviews() {
     super.layoutSubviews()
-    profileImageView.frame = CGRect(x: 3,
-                                    y: 3,
-                                    width: contentView.height-6,
-                                    height: contentView.height-6)
+    profileImageView.frame             = CGRect(x: 3,
+                                                y: 3,
+                                                width: contentView.height-6,
+                                                height: contentView.height-6)
     profileImageView.layer.cornerRadius = profileImageView.height/2
-    let size = contentView.height-4
-    postButton.frame = CGRect(x: contentView.width-5-size, y: 2, width: size, height: size)
-    label.frame = CGRect(x: profileImageView.right+5,
-                         y: 0,
-                         width: contentView.width-size-profileImageView.width-16,
-                         height: contentView.height)
+    let size                            = contentView.height-4
+    postButton.frame                    = CGRect(x: contentView.width-5-size,
+                                                 y: 2,
+                                                 width: size,
+                                                 height: size)
+    label.frame                         = CGRect(x: profileImageView.right+5,
+                                                 y: 0,
+                                                 width: contentView.width-size-profileImageView.width-16,
+                                                 height: contentView.height)
   }
 
   //MARK: - Methods
+  @objc private func didTappostButton() {
+    guard let model = model else { return }
+    delegate?.didTapRelatedPostButton(model: model)
+  }
+
   override func prepareForReuse() {
     super.prepareForReuse()
     postButton.setBackgroundImage(nil, for: .normal)

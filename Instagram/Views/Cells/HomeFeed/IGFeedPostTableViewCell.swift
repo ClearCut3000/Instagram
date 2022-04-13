@@ -21,6 +21,11 @@ final class IGFeedPostTableViewCell: UITableViewCell {
     fatalError("init(coder:) has not been implemented")
   }
 
+  //MARK: - Layout
+  override func layoutSubviews() {
+    super.layoutSubviews()
+  }
+
   //MARK: - Methods
   public func configure() {
 

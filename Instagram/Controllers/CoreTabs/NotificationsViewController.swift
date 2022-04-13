@@ -9,7 +9,7 @@ import UIKit
 
 enum UserNotificationType {
   case like(post: UserPost)
-  case follow
+  case follow(state: FollowState)
 }
 
 struct UserNotification {
@@ -89,15 +89,39 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
     case .follow:
       let cell = tableView.dequeueReusableCell(withIdentifier: NotificationFollowEventTableViewCell.identifier, for: indexPath) as! NotificationFollowEventTableViewCell
       cell.configure(with: model)
+      cell.delegate = self
       return cell
     case .like(_):
       let cell = tableView.dequeueReusableCell(withIdentifier: NotificationLikeEventTableViewCell.identifier, for: indexPath) as! NotificationLikeEventTableViewCell
       cell.configure(with: model)
+      cell.delegate = self
       return cell
     }
   }
 
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 52
+  }
+}
+
+//MARK: - Notification LikeEvent TableViewCell Delegate
+extension NotificationsViewController: NotificationLikeEventTableViewCellDelegate {
+  func didTapRelatedPostButton(model: UserNotification) {
+    switch model.type {
+    case .like(let post):
+      let vc = PostViewController(model: nil)
+      vc.title = post.postType.rawValue
+      vc.navigationItem.largeTitleDisplayMode = .never
+      navigationController?.pushViewController(vc, animated: true)
+    case .follow(_):
+      fatalError("Dev issue: Should never get called")
+    }
+  }
+}
+
+//MARK: -Notification FollowEvent TableViewCell Delegate
+extension NotificationsViewController: NotificationFollowEventTableViewCellDelegate {
+  func didTapFollowUnfollowButton(model: UserNotification) {
+    <#code#>
   }
 }
