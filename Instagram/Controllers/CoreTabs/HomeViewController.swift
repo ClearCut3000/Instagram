@@ -33,6 +33,8 @@ class HomeViewController: UIViewController {
   //MARK: - View Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    createMockModels()
+    view.addSubview(tableView)
     tableView.delegate = self
     tableView.dataSource = self
   }
@@ -49,6 +51,33 @@ class HomeViewController: UIViewController {
   }
 
   //MARK: - Methods
+  private func  createMockModels() {
+    let user = User(username: "Joe",
+                    bio: "",
+                    name: (first: "", last: ""),
+                    profilePhoto: URL(string: "https://www.google.com")!,
+                    birthDate: Date(),
+                    gender: .male,
+                    counts: UserCount(follewers: 5, following: 5, posts: 5),
+                    joinDate: Date())
+    let post = UserPost(postIdentifier: "",
+                        postType: .photo,
+                        thumbnailImage: URL(string: "https://www.google.com")!,
+                        postUR: URL(string: "https://www.google.com")!,
+                        caption: nil,
+                        likeCount: [],
+                        comments: [],
+                        createdDate: Date(),
+                        taggedUsers: [],
+                        owner: user)
+    for x in 0 ..< 5 {
+      let viewModel = HomeFeedRanderViewModel(header: <#T##PostRenderViewModel#>,
+                                              post: <#T##PostRenderViewModel#>,
+                                              actions: <#T##PostRenderViewModel#>,
+                                              comments: <#T##PostRenderViewModel#>)
+    }
+  }
+
   private func handleNotAuthenticated() {
     //Check Auth status
     if Auth.auth().currentUser == nil {
@@ -89,7 +118,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
       let commentsModel = model.comments
       switch commentsModel.renderType {
       case .comments(let comments): return comments.count > 2 ? 2 : comments.count
-      @unknown default: fatalError("Invalid case")
+      case .header, .primaryContent, .actions: return 0
       }
     }
     return 0
@@ -113,7 +142,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostHeaderTableViewCell.identifier,
                                                  for: indexPath) as! IGFeedPostHeaderTableViewCell
         return cell
-      @unknown default: fatalError("Invalid case")
+      case .primaryContent, .actions, .comments: return UITableViewCell()
       }
     } else if subSection == 1 {
       //post
@@ -123,7 +152,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostTableViewCell.identifier,
                                                  for: indexPath) as! IGFeedPostTableViewCell
         return cell
-      @unknown default: fatalError("Invalid case")
+      case .header, .actions, .comments: return UITableViewCell()
       }
     } else if subSection == 2 {
       //actions
@@ -133,7 +162,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostActionsTableViewCell.identifier,
                                                  for: indexPath) as! IGFeedPostActionsTableViewCell
         return cell
-      @unknown default: fatalError("Invalid case")
+      case .header, .primaryContent, .comments: return UITableViewCell()
       }
     } else if subSection == 3 {
       //comments
@@ -143,7 +172,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostGeneralTableViewCell.identifier,
                                                  for: indexPath) as! IGFeedPostGeneralTableViewCell
         return cell
-      @unknown default: fatalError("Invalid case")
+      case .header, .primaryContent, .actions: return UITableViewCell()
       }
     }
     return UITableViewCell()
