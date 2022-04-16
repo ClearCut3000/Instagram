@@ -47,8 +47,11 @@ public struct UserPost {
 }
 
 struct PostComment {
-  let userName: String
-  let postIdentifier: String
+  let identifier: String
+  let username: String
+  let text: String
+  let createdDate: Date
+  let likes: [CommentLike]
 }
 
 struct CommentLike {
