@@ -63,7 +63,7 @@ class HomeViewController: UIViewController {
     let post = UserPost(postIdentifier: "",
                         postType: .photo,
                         thumbnailImage: URL(string: "https://www.google.com")!,
-                        postUR: URL(string: "https://www.google.com")!,
+                        postURL: URL(string: "https://www.google.com")!,
                         caption: nil,
                         likeCount: [],
                         comments: [],
@@ -157,6 +157,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
       case .primaryContent(let post):
         let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostTableViewCell.identifier,
                                                  for: indexPath) as! IGFeedPostTableViewCell
+        cell.configure(with: post)
         return cell
       case .header, .actions, .comments: return UITableViewCell()
       }

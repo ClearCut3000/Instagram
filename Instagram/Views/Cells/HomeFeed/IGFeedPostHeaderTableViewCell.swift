@@ -28,7 +28,11 @@ class IGFeedPostHeaderTableViewCell: UITableViewCell {
   }
 
   //MARK: - Methods
-  public func configure() {
+  override func prepareForReuse() {
+    super.prepareForReuse()
+  }
+
+  public func configure(with model: User) {
 
   }
 

@@ -33,11 +33,12 @@ public enum UserPostType: String {
   case video = "Video"
 }
 
+//Represent usr post
 public struct UserPost {
   let postIdentifier: String
   let postType: UserPostType
   let thumbnailImage: URL
-  let postUR: URL
+  let postURL: URL
   let caption: String?
   let likeCount: [PostLikes]
   let comments: [PostComment]
