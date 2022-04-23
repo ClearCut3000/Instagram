@@ -8,10 +8,15 @@
 import SDWebImage
 import UIKit
 
+protocol IGFeedPostHeaderTableViewCellDelegate: AnyObject {
+  func didTabMoreButton()
+}
+
 class IGFeedPostHeaderTableViewCell: UITableViewCell {
 
   //MARK: - Properties
   static let identifier = "IGFeedPostActionsTableViewCell"
+  weak var delegate: IGFeedPostHeaderTableViewCellDelegate?
 
   //MARK: - Subview's
   private let profilePhoto: UIImageView = {
@@ -83,6 +88,6 @@ class IGFeedPostHeaderTableViewCell: UITableViewCell {
 
   //MARK: - Actions
   @objc private func didTapButton() {
-
+    delegate?.didTabMoreButton()
   }
 }

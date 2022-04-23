@@ -149,6 +149,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostHeaderTableViewCell.identifier,
                                                  for: indexPath) as! IGFeedPostHeaderTableViewCell
         cell.configure(with: user)
+        cell.delegate = self
         return cell
       case .primaryContent, .actions, .comments: return UITableViewCell()
       }
@@ -168,6 +169,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
       case .actions(let provider):
         let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostActionsTableViewCell.identifier,
                                                  for: indexPath) as! IGFeedPostActionsTableViewCell
+        cell.delegate = self
         return cell
       case .header, .primaryContent, .comments: return UITableViewCell()
       }
@@ -214,4 +216,37 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     let subSection = section % 4
     return subSection == 3 ? 70 : 0
   }
+}
+
+//MARK: - IGFeedPostHeaderTableViewCellDelegate
+extension HomeViewController: IGFeedPostHeaderTableViewCellDelegate {
+  func didTabMoreButton() {
+    let actionSheet = UIAlertController(title: "Post Option", message: nil, preferredStyle: .actionSheet)
+    actionSheet.addAction(UIAlertAction(title: "Report Post", style: .destructive, handler: { [weak self] _ in
+      self?.reportPost()
+    }))
+    actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel ))
+    present(actionSheet, animated: true)
+  }
+
+  func reportPost() {
+
+  }
+}
+
+//MARK: - IGFeedPostActionsTableViewCellDelegate
+extension  HomeViewController: IGFeedPostActionsTableViewCellDelegate {
+  func didTapLikeButton() {
+    <#code#>
+  }
+
+  func didtapCommentButton() {
+    <#code#>
+  }
+
+  func didTapSendButton() {
+    <#code#>
+  }
+
+  
 }
